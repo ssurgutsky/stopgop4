@@ -1,0 +1,8 @@
+function randomInt(min, max) {
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
+let rnd = randomInt(1, 2);
+let result = (this.questions[this.currentQuestionNo]["a" + this.answerNo] || {});
+result = result["text" + rnd] || '';
+result;

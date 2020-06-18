@@ -1,0 +1,30 @@
+let ar = this.questions[this.currentQuestionNo]['a' + this.answer].r;
+
+for (let i = 0; i < ar.length; i++) {
+  this.r[i] += ar[i];
+}
+
+console.log(this.r);
+
+// Set next question
+this.currentQuestionNo++;
+
+// Get max difference in ratings
+let temp = this.r.slice().sort(function sortNumber(a, b) {return a - b;}).reverse();
+let max = temp[0];
+
+let maxRateDiff = 0;
+for (let i = 1; i < temp.length; i++) {
+  let maxDiff = temp[i-1] - temp[i];
+  console.log(i,'.maxDiff', maxDiff);
+  if (maxDiff >= maxRateDiff) {
+    maxRateDiff = maxDiff;
+  }
+}
+
+console.log('maxRateDiff', maxRateDiff, 'MAX_RATE_DIFF_POINTS', this.MAX_RATE_DIFF_POINTS);
+
+// Check max difference with settings or check if all questions are done
+this.isResult = maxRateDiff >= this.MAX_RATE_DIFF_POINTS || this.currentQuestionNo >= this.questions.length;
+
+'';

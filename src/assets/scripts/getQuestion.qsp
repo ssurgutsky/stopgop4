@@ -1,0 +1,4 @@
+let question = this.questions[this.currentQuestionNo];
+this.qId = question.id;
+let result = question.q;
+'' + (this.currentQuestionNo + 1) + '. ' + result;

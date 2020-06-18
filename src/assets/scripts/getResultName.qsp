@@ -1,0 +1,259 @@
+let result='';
+let audio='';
+let title='';
+let audio2='';
+let audioNames='';
+let audioTitles='';
+
+let temp = this.r.slice().sort(function sortNumber(a, b) {return a - b;}).reverse();
+let max = temp[0];
+
+let maxRateGroups = [];
+
+for (let i = 0; i < this.r.length; i++) {
+  let gRate = this.r[i];
+  let deltaPercent = ((max - gRate) * 100 / max);
+
+  if (deltaPercent <= this.MAX_RATE_DELTA_PERCENT) {
+    maxRateGroups.push(i);
+    let gNames = this.groups_names[i];
+
+    // get name index depending of this.r[]
+    let k = gNames.length;
+    console.log('k', k);
+    let multiplier = 4; // tweak
+    let p = parseInt(this.r[i] * multiplier * 100 / this.maxQuestionRates[i]);
+    console.log('r', this.r[i], ' * multiplier', multiplier, 'max r', this.maxQuestionRates[i], 'p =', p + '%');
+    if (p < 0) p = 0;
+    if (p > 99) p = 99;
+    let PART_PERCENT = parseInt(100 / k);
+    let subgroupNo = parseInt(p / PART_PERCENT);
+
+    console.log('subgroupNo', subgroupNo);
+
+    let rndIdx = parseInt(Math.random() * gNames[subgroupNo].length);
+    console.log('rndIdx', rndIdx);
+
+    result = result + ((result.length && i > 0) ? '-' : '') + gNames[subgroupNo][rndIdx].text1;
+    audio = audio + ((audio.length && i > 0) ? ',' : '') + gNames[subgroupNo][rndIdx].text2;
+    audioNames = audioNames + ((audioNames.length && i > 0) ? ',' : '') + 'names/' + gNames[subgroupNo][rndIdx].text2;
+    title = title + ((title.length && i > 0) ? '-' : '') + this.group_titles[i].text1;
+    audioTitles = audioTitles + ((audioTitles.length && i > 0) ? ',' : '') + 'titles/' + this.group_titles[i].text2;
+  }
+}
+
+// Check for elite name
+
+console.log('maxRateGroups', maxRateGroups);
+
+// Case: Brutal + Botan
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BRUTAL_INDEX && maxRateGroups[1] == this.BOTAN_INDEX) ||
+    (maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.BRUTAL_INDEX))
+) {
+  let gNames = this.groups_names[this.BRONZE_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.BRONZE_INDEX].text1;
+  audio2 = this.group_titles[this.BRONZE_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.BRONZE_INDEX].text2;
+}
+
+// Case: Blatnoy + Razdolbai
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BLATNOY_INDEX && maxRateGroups[1] == this.RAZDOLBAI_INDEX) ||
+    (maxRateGroups[0] == this.RAZDOLBAI_INDEX && maxRateGroups[1] == this.BLATNOY_INDEX))
+) {
+  let gNames = this.groups_names[this.WOODEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.WOODEN_INDEX].text1;
+  audio2 = this.group_titles[this.WOODEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.WOODEN_INDEX].text2;
+}
+
+// Case: Brutal + Razdolbai
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BRUTAL_INDEX && maxRateGroups[1] == this.RAZDOLBAI_INDEX) ||
+    (maxRateGroups[0] == this.RAZDOLBAI_INDEX && maxRateGroups[1] == this.BRUTAL_INDEX))
+) {
+  let gNames = this.groups_names[this.CRUDEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.CRUDEN_INDEX].text1;
+  audio2 = this.group_titles[this.CRUDEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.CRUDEN_INDEX].text2;
+}
+
+// Case: Diplomat + Razdolbai
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.DIPLOMAT_INDEX && maxRateGroups[1] == this.RAZDOLBAI_INDEX) ||
+    (maxRateGroups[0] == this.RAZDOLBAI_INDEX && maxRateGroups[1] == this.DIPLOMAT_INDEX))
+) {
+  let gNames = this.groups_names[this.LEATHEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.LEATHEN_INDEX].text1;
+  audio2 = this.group_titles[this.LEATHEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.LEATHEN_INDEX].text2;
+}
+
+// Case: Botanik + Razdolbai
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.RAZDOLBAI_INDEX) ||
+    (maxRateGroups[0] == this.RAZDOLBAI_INDEX && maxRateGroups[1] == this.BOTAN_INDEX))
+) {
+  let gNames = this.groups_names[this.GLASSEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length);
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.GLASSEN_INDEX].text1;
+  audio2 = this.group_titles[this.GLASSEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.GLASSEN_INDEX].text2;
+}
+
+// Case: Diplomat + Botanik
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.DIPLOMAT_INDEX && maxRateGroups[1] == this.BOTAN_INDEX) ||
+    (maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.DIPLOMAT_INDEX))
+) {
+  let gNames = this.groups_names[this.DIMPLOBOTAN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length);
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.DIMPLOBOTAN_INDEX].text1;
+  audio2 = this.group_titles[this.DIMPLOBOTAN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.DIMPLOBOTAN_INDEX].text2;
+}
+
+// Case: Blatnoy + Brutal
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BLATNOY_INDEX && maxRateGroups[1] == this.BRUTAL_INDEX) ||
+    (maxRateGroups[0] == this.BRUTAL_INDEX && maxRateGroups[1] == this.BLATNOY_INDEX))
+) {
+  let gNames = this.groups_names[this.ALPHA_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length);
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.ALPHA_INDEX].text1;
+  audio2 = this.group_titles[this.ALPHA_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.ALPHA_INDEX].text2;
+}
+
+// Case: Blatnoy + Diplomat
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BLATNOY_INDEX && maxRateGroups[1] == this.DIPLOMAT_INDEX) ||
+    (maxRateGroups[0] == this.DIPLOMAT_INDEX && maxRateGroups[1] == this.BLATNOY_INDEX))
+) {
+  let gNames = this.groups_names[this.KOZYRNIY_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length);
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.KOZYRNIY_INDEX].text1;
+  audio2 = this.group_titles[this.KOZYRNIY_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.KOZYRNIY_INDEX].text2;
+}
+
+// Case: Blatnoy + Botanik
+if (maxRateGroups.length === 2 &&
+    ((maxRateGroups[0] == this.BLATNOY_INDEX && maxRateGroups[1] == this.BOTAN_INDEX) ||
+    (maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.BLATNOY_INDEX))
+) {
+  let gNames = this.groups_names[this.SMART_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length);
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.SMART_INDEX].text1;
+  audio2 = this.group_titles[this.SMART_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.SMART_INDEX].text2;
+}
+
+// Case: Blatnoy + Brutal + Botan
+if (maxRateGroups.length === 3 &&
+    ((maxRateGroups[0] == this.BLATNOY_INDEX && maxRateGroups[1] == this.BRUTAL_INDEX && maxRateGroups[2] == this.BOTAN_INDEX) ||
+    (maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.BLATNOY_INDEX && maxRateGroups[2] == this.BRUTAL_INDEX) ||
+    (maxRateGroups[0] == this.BRUTAL_INDEX && maxRateGroups[1] == this.BOTAN_INDEX && maxRateGroups[2] == this.BLATNOY_INDEX))
+) {
+  let gNames = this.groups_names[this.SILVER_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.SILVER_INDEX].text1;
+  audio2 = this.group_titles[this.SILVER_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.SILVER_INDEX].text2;
+}
+
+// Case: Brutal + Diplomat + Botan
+if (maxRateGroups.length === 3 &&
+    ((maxRateGroups[0] == this.BRUTAL_INDEX && maxRateGroups[1] == this.DIPLOMAT_INDEX && maxRateGroups[2] == this.BOTAN_INDEX) ||
+    (maxRateGroups[0] == this.BOTAN_INDEX && maxRateGroups[1] == this.BRUTAL_INDEX && maxRateGroups[2] == this.DIPLOMAT_INDEX) ||
+    (maxRateGroups[0] == this.DIPLOMAT_INDEX && maxRateGroups[1] == this.BOTAN_INDEX && maxRateGroups[2] == this.BRUTAL_INDEX))
+) {
+  let gNames = this.groups_names[this.GOLDEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.GOLDEN_INDEX].text1;
+  audio2 = this.group_titles[this.GOLDEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.GOLDEN_INDEX].text2;
+}
+
+function crypt(cryptoStr, key) {
+  var newstr = '';
+  for(let i=0; i < cryptoStr.length; i++) {
+    let char = cryptoStr.charCodeAt(i) ^ key;
+    newstr += String.fromCharCode(char);
+  }
+  return newstr;
+}
+
+let dynamicKey = this.cryptoKey + 1 + parseInt(Math.random()*25);
+
+//console.log('dynamicKey:', dynamicKey);
+
+let msg1 = audio + this.separator + audio2 + this.separator + this.friends;
+let cs = this.checkSumByte;
+for (let i = 0; i < msg1.length; i++) {
+  cs = cs ^ msg1.charCodeAt(i);
+}
+
+msg1 = msg1 + this.separatorCheckSum + cs;
+
+// console.log('msg1', msg1);
+
+let encryptStr1 = crypt(msg1, dynamicKey);
+// console.log('encryptStr1', encryptStr1);
+
+let msg2 = encryptStr1 + this.separator + dynamicKey;
+// console.log('msg2', msg2);
+
+let encryptStr2 = crypt(msg2, this.cryptoKey) + '@';
+//console.log('encryptStr2', encryptStr2);
+
+this.nickName = result + ' (' + title + ')';
+this.audioTag = audioNames + ',' + audioTitles;
+
+if (maxRateGroups.length == 4) {
+  this.audioTag = this.audioTag +',coolnickname1';
+}
+if (maxRateGroups.length == 5) {
+  this.audioTag = this.audioTag +',coolnickname2';
+}
+
+this.certificate = encryptStr2;
+'';

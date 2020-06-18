@@ -1,0 +1,6 @@
+let result='';
+let ICONS = ['coins_bl.png', 'coins_br.png', 'coins_di.png', 'coins_bo.png', 'coins_ra.png']
+for (let i = 0; i < this.r.length; i++) {
+  result = result + (result.length > 0 ? '&' : '') + ICONS[i] + '|' + (350 + 54 * i) + ';' + (480 - this.r[i]*10) + ';1;1;0;1';
+}
+result;

@@ -1,0 +1,75 @@
+[mark_6qt33ij77wk9z089lj79]Stop Gop 4. Pogonyalo. Симулятор гопника, узнай свое погоняло![ANSWERSORDER OFF][BGNDIMAGE Intro.jpg]{script initQuestions}{script initNames}{script initSystem}
+	НАЧАТЬ ИГРУ / START THE GAME
+		[mark_au0e5w32c3m410n44507]Здарова! Мне отсюда плохо видно - кто ты такой: лох, пацан или женщина. Для простоты, я буду звать тебя - Толян. Рассказать тебе правила, Толян?[VIDEO GopSpeechSimpleLoop][AUDIO hello][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]
+			Расскажи
+				[mark_6alypq5q1m98ft66te87]Короче, Толян, расклад такой: я задам тебе несколько вопросов. На каждый вопрос есть 5 ответов.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules01][BGNDVIDEO GopStandsBouncing]
+					Далее
+						[mark_e5clk197gpb673ill77w]Не обязательно отвечать правильно, Толян. Отвечай от души и честно. А чтобы ты реально отвечал честно, мне нужно, чтобы рядом с тобой были 2 поручителя.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules02][BGNDVIDEO GopStandsBouncing]
+							Ладно
+								[mark_1eta3ru4snypwf6vc550]Поручители - это те люди, которые смогут потом подтвердить, что ты не врал, а прошел тест по-чесноку.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules03][BGNDVIDEO GopStandsBouncing]
+									Понял
+										[mark_29ewi18dv2742cwyk306]Как только я почувствую, кто ты есть, то сразу скажу твое погоняло и твое место в жизни. И выдам тебе зашифрованный сертификат, куда впишу твое погоняло и имена твоих поручителей.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules04][BGNDVIDEO GopStandsBouncing]
+											Ладно
+												[mark_5tfl6i46zh2aj51o8jo5]И чем солидней будут твои поручители, тем больше будет к тебе уважения, Толян. Лучше, чтобы поручители были уже с сертификатами, это будет самая реальная тема для всех.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules05][BGNDVIDEO GopStandsBouncing]
+													Да, это верно
+														[mark_32x4ej434z44wz39ezwc]Но, запомни, Толян! Любой чел сможет потом спросить твоих поручителей про тебя. И, если, вдруг, окажется, что ты сам себе выписал фартовую кликуху, то станешь ты "просто вася", Толян.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules06][BGNDVIDEO GopStandsBouncing]
+															Да, я понял
+																[mark_b4ijzr9au23r98u42fx1]Еще хочу сказать, у меня есть и элитные кликухи (золотая, серебрянная и бронзовая), но их я даю только самым одаренным людям. Возможно, ты будешь одним из них.[VIDEO GopSpeechSimpleLoop][AUDIO rules/rules07][BGNDVIDEO GopStandsBouncing]
+																	Отлично
+																		[INTRO,GAME_SAVEPOINT]{if (this.firstQuiz) {'Ну что, погнали за твоим погонялом?';} else {'Еще раз?'}}[VIDEO GopSpeechSimpleLoop][AUDIO {this.firstQuiz ? 'lets_go' : 'lets_again'}][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]
+																			Начать тест.
+																				[enter_friends]Введи фамилии своих поручителей (через запятую от 5 до 40 символов!)\nЛибо введи их погоняла, если у них уже есть сертификат.[VIDEO GopSpeechSimpleLoop][AUDIO enter_friends][BGNDVIDEO GopStandsBouncing]
+																					[INPUTS this.friends]
+																						[mark_5528jv783l93i90xud0p]{script checkFriends}{if (this.isFriendsChecked) '[GOTO BEGIN]'; else '[GOTO invalid_friends]'}
+																							
+																								[invalid_friends]Неправильно набираешь. Внимательно прочитай, как надо.[VIDEO GopSpeechLoadingLoop][AUDIO invalid_friends][BGNDVIDEO GopStandsBouncing]
+																									Хорошо
+																										[mark_9135683a6g856ilvnbi3][GOTO enter_friends]
+																											
+																												[BEGIN]Я начинаю задавать вопросы.[VIDEO GopSpeechLoadingLoop][AUDIO start_ask_questions]
+																													
+																														[once_again]{script resetStats}
+																															
+																																[question]{script getQuestion}[VIDEO GopSpeechLoadingLoop][AUDIO questions/q{this.qId}][BGNDVIDEO GopStandsStillLoop][IMAGE {script showRatings}][BGNDIMAGE {script showRatings}]
+																																	{this.answerNo=1;'';}{script getAnswer}
+																																		[mark_c79m8i7ztrq3m86ec2sb]{this.answer=1;'';}[GOTO calc_question]
+																																			
+																																				[calc_question]{script calcQuestion}{if (this.isResult) '[GOTO result]'; else '[GOTO question]'}
+																																	{this.answerNo=2;'';}{script getAnswer}
+																																		[mark_5wd4ye77yw8p559970p1]{this.answer=2;'';}[GOTO calc_question]
+																																	{this.answerNo=3;'';}{script getAnswer}
+																																		[mark_4w4dypw8834264h4r6yy]{this.answer=3;'';}[GOTO calc_question]
+																																	{this.answerNo=4;'';}{script getAnswer}
+																																		[mark_458nri3utg540f7d890f]{this.answer=4;'';}[GOTO calc_question]
+																																	{this.answerNo=5;'';}{script getAnswer}
+																																		[mark_d36801fkavh59q68g12z]{this.answer=5;'';}[GOTO calc_question]
+																				[result]{script getResultName}{this.firstQuiz=false;'';}
+																					
+																						[repeat_nickname]Твое погоняло: {this.nickName}\nПоручители: {this.friends}[VIDEO GopSpeechLoadingLoop][AUDIO your_nickname,{this.audioTag}][BGNDVIDEO GopEatsSunflowerSeedsLoop][IMAGE {script showRatings}][BGNDIMAGE {script showRatings}][ANSWERSORDER OFF]
+																							Повторить погоняло еще раз
+																								[mark_38n94k0dz91363b0j2zg][GOTO repeat_nickname]
+																							Получить сертификат
+																								[mark_mnz7555x594o13eq4h43]Это твой сертификат.\n(нажми OK чтобы скопировать его в буффер обмена, а затем сохрани где-нибудь)[VIDEO GopSpeechLoadingLoop][AUDIO its_your_certificate][BGNDVIDEO GopStandsBouncing]
+																									[INPUTS this.certificate]
+																										[mark_800w8wb78wr0x46vfdiu][GOTO repeat_nickname]
+																							Пройти тест заново
+																								[mark_q85i6acllrxxllbni19k][GOTO once_again]
+																							Ввести других поручителей
+																								[mark_m43bcrv7ry707t1ms392][GOTO enter_friends]
+																			[check_certificate]Проверить сертификат.
+																				[enter_certificate]Введи или скопируй строку сертификата и нажми ОК.[VIDEO GopSpeechLoadingLoop][AUDIO check_certificate][BGNDVIDEO GopStandsBouncing]
+																					[INPUTS this.certificate]
+																						[mark_k60yr41n79jy1w5zyfss]{script checkCertificate}{if (this.isValidCertificate) '[GOTO valid_certificate]'; else '[GOTO invalid_certificate]'}
+																							
+																								[valid_certificate]Твое погоняло: {this.nickName}\nПоручители: {this.friends}[VIDEO GopSpeechLoadingLoop][AUDIO your_nickname,{this.audioTag}][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]
+																									Повтори погоняло еще раз
+																										[mark_851xb7s88u85296l8sd8][GOTO valid_certificate]
+																									OK
+																										[mark_wom7890ll15qflzoy77x][GOTO INTRO]
+																								[invalid_certificate]Неправильный сертификат.[VIDEO GopSpeechLoadingLoop][AUDIO invalid_certificate][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]
+																									Давай, исправлю.
+																										[mark_o2k5eyqcsg5n58bh9q77][GOTO enter_certificate]
+																									Хмм...мдэ...
+																										[mark_fu13r52lyqz6se221hem][GOTO INTRO]
+			[skip_rules]Уже знаю
+				[mark_a7c215315ost6ki2p7z8][GOTO INTRO]

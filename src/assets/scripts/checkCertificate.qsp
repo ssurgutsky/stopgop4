@@ -1,0 +1,117 @@
+function crypt (cryptoStr, key) {
+  var newstr = ''
+  for (let i = 0; i < cryptoStr.length; i++) {
+    let char = cryptoStr.charCodeAt(i) ^ key
+    newstr += String.fromCharCode(char)
+  }
+  return newstr
+}
+
+this.isValidCertificate = false;
+this.nickName = '';
+this.audioTag = 'silent_2.13';
+let titles = '';
+let audio = '';
+let audio2 = '';
+let audioNames='';
+let audioTitles='';
+
+if (this.certificate.charAt(this.certificate.length - 1) === '@') {
+  let str = this.certificate.substring(0, this.certificate.length - 1)
+  console.log('str', str)
+
+  let decryptStr1 = crypt(str, this.cryptoKey)
+  console.log('decryptStr1', decryptStr1)
+  let arr = decryptStr1.split(this.separator)
+
+  if (arr.length > 1) {
+    let msg2 = arr[0]
+    console.log('msg2', msg2)
+
+    let dynamicKey = decryptStr1.split(this.separator)[1]
+    console.log('dynamicKey', dynamicKey)
+
+    let decryptStr2 = crypt(msg2, dynamicKey)
+    console.log('decryptStr2', decryptStr2)
+
+    let arr2 = decryptStr2.split(this.separatorCheckSum)
+    if (arr2.length > 1) {
+      let msg1 = arr2[0]
+      console.log('msg1', msg1)
+      let checkSum = parseInt(arr2[1])
+      console.log('checkSum', checkSum)
+
+      let cs = this.checkSumByte
+      for (let i = 0; i < msg1.length; i++) {
+        cs = cs ^ msg1.charCodeAt(i)
+      }
+      console.log('cs', cs)
+
+      if (cs === checkSum) {
+        let arr3 = msg1.split(this.separator)
+        if (arr3.length > 1) {
+          let namesArr = arr3[0].split(',');
+          namesArr = namesArr.map(item => 'names/' + item);
+          let titlesArr = arr3[1].split(',');
+          titlesArr = titlesArr.map(item => 'titles/' + item);
+
+          this.audioTag = namesArr + ',' + titlesArr;
+          this.friends = arr3[2]
+
+          // convert audio to names
+          // console.log('arr3[0]', arr3[0])
+          let audiosArr = arr3[0].split(',');
+          for (let a = 0; a < audiosArr.length; a++) {
+            let audio = audiosArr[a];
+            let subname = '';
+            for (let n = 0; n < this.groups_names.length; n++) {
+              let subgroup = this.groups_names[n]
+              for (let nn = 0; nn < subgroup.length; nn++) {
+                let subgroupcat = subgroup[nn]
+                if (Array.isArray(subgroupcat)) {
+                  for (let nnn = 0; nnn < subgroupcat.length; nnn++) {
+                    if (subgroupcat[nnn].text2 === audio) {
+                      subname = subgroupcat[nnn].text1
+                      break
+                    }
+                  }
+                } else {
+                  if (subgroup[nn].text2 == audio) {
+                    subname = subgroup[nn].text1
+                    break
+                  }
+                }
+                if (subname !== '') {
+                  break
+                }
+              }
+              if (subname !== '') {
+                break
+              }
+            }
+            this.nickName = this.nickName + ((this.nickName.length > 0) ? '-' : '') + subname;
+          }
+          // console.log('audio', audio)
+
+          // convert audio to titles
+          audiosArr = arr3[1].split(',');
+          for (let a = 0; a < audiosArr.length; a++) {
+            audio = audiosArr[a];
+            for (let n = 0; n < this.group_titles.length; n++) {
+              if (this.group_titles[n].text2 === audio) {
+                titles = titles + ((titles.length > 0) ? '-': '' ) + this.group_titles[n].text1;
+                break;
+              }
+            }
+          }
+          // console.log('titles', titles)
+          this.nickName = this.nickName + ' (' + titles + ')';
+
+          this.isValidCertificate = true
+        }
+      }
+    }
+  }
+}
+
+''

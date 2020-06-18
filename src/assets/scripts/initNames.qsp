@@ -1,0 +1,357 @@
+this.group_titles=[
+  {text1: 'блатной', text2: 'blatnoy'},
+  {text1: 'брутал', text2: 'brutal'},
+  {text1: 'дипломат', text2: 'diplomat'},
+  {text1: 'ботаник', text2: 'botanik'},
+  {text1: 'раздолбай', text2: 'razdolbai'},
+  {text1: 'Золотой! брутал-дипломат-ботаник', text2: 'golden'},
+  {text1: 'Серебряный! блатной-брутал-ботаник', text2: 'silver'},
+  {text1: 'Бронзовый! брутал-ботаник', text2: 'bronze'},
+  {text1: 'Деревянный! блатной-раздолбай', text2: 'wooden'},
+  {text1: 'Чугунный! брутал-раздолбай', text2: 'cruden'},
+  {text1: 'Кожанный! дипломат-раздолбай', text2: 'leathen'},
+  {text1: 'Стеклянный! ботаник-раздолбай', text2: 'glassen'},
+  {text1: 'Диплоботан! дипломат-ботаник', text2: 'diplobotan'},
+  {text1: 'Альфач! блатной-брутал', text2: 'alpha'},
+  {text1: 'Козырный! блатной-дипломат', text2: 'kozyrniy'},
+  {text1: 'Смартовый! блатной-ботаник', text2: 'smart'}
+];
+
+this.BLATNOY_INDEX = 0;
+this.BRUTAL_INDEX = 1;
+this.DIPLOMAT_INDEX = 2;
+this.BOTAN_INDEX = 3;
+this.RAZDOLBAI_INDEX = 4;
+
+this.GOLDEN_INDEX = 5;
+this.SILVER_INDEX = 6;
+this.BRONZE_INDEX = 7;
+
+this.WOODEN_INDEX = 8;
+this.CRUDEN_INDEX = 9;
+this.LEATHEN_INDEX = 10;
+this.GLASSEN_INDEX = 11;
+
+this.DIMPLOBOTAN_INDEX = 12;
+this.ALPHA_INDEX = 13;
+
+this.KOZYRNIY_INDEX = 14;
+this.SMART_INDEX = 15;
+
+this.groups_names=[
+[
+  [
+    {text1: 'Бурбон', text2: 'burbon'},
+    {text1: 'Бурито', text2: 'burito'},
+    {text1: 'Мохито', text2: 'moxito'},
+    {text1: 'Боб-Хоп', text2: 'bob_hop'},
+    {text1: 'Фазан', text2: 'fazan'},
+    {text1: 'Чики-пики', text2: 'chiki_piki'},
+    {text1: 'Фармазон', text2: 'farmazon'},
+    {text1: 'Гуантано', text2: 'guantano'},
+    {text1: 'Фарт', text2: 'fart'},
+    {text1: 'Виза', text2: 'viza'},
+    {text1: 'Си-джей', text2: 'cj'},
+    {text1: 'Эл-джей', text2: 'lj'},
+    {text1: 'Марчелло', text2: 'marchello'},
+    {text1: 'Варпидол', text2: 'varpidol'},
+    {text1: 'Кентано', text2: 'kentano'},
+    {text1: 'Перрейро', text2: 'perreiro'},
+    {text1: 'Ванмо', text2: 'onemore'},
+    {text1: 'Курт', text2: 'kurt'},
+    {text1: 'Гаркал', text2: 'garkal'},
+    {text1: 'Цикорий', text2: 'cikoriy'},
+    {text1: 'Гарри', text2: 'garry'},
+    {text1: 'Барангол', text2: 'barangol'},
+    {text1: 'Варфоломей', text2: 'varfolomei'},
+    {text1: 'Алессандро', text2: 'alexandro'},
+    {text1: 'Чердано', text2: 'cherdano'},
+    {text1: 'Фарпидол', text2: 'farpidol'},
+    {text1: 'Хугардо', text2: 'huegardo'},
+    {text1: 'Макларен', text2: 'mclaren'},
+    {text1: 'Монтана', text2: 'montana'}
+  ],
+  [
+    {text1: 'Харлей', text2: 'harley'},
+    {text1: 'Антибиотик', text2: 'antibiotik'},
+    {text1: 'Бруно', text2: 'bruno'},
+    {text1: 'Дайкири', text2: 'daikiri'},
+    {text1: 'Марвэл', text2: 'marvel'},
+    {text1: 'Дорадо', text2: 'dorado'}
+  ]
+],
+[
+  [
+    {text1: 'Клинч', text2: 'klinch'},
+    {text1: 'Бомбардир', text2: 'bombardir'},
+    {text1: 'Торпедо', text2: 'torpedo'},
+    {text1: 'Турбо', text2: 'turbo'},
+    {text1: 'Мачетте', text2: 'machette'},
+    {text1: 'Карбон', text2: 'carbon'},
+    {text1: 'Искандер', text2: 'iskander'},
+    {text1: 'Баркас', text2: 'barkas'},
+    {text1: 'Чакки', text2: 'chakki'},
+    {text1: 'Ураган', text2: 'uragan'},
+    {text1: 'Торч', text2: 'torch'},
+    {text1: 'Вульф', text2: 'wolf'},
+    {text1: 'Корунд', text2: 'korund'},
+    {text1: 'Рапид', text2: 'rapid'},
+    {text1: 'Кватро', text2: 'quattro'},
+    {text1: 'Феррум', text2: 'ferrum'},
+    {text1: 'Сокол', text2: 'sokol'},
+    {text1: 'Кирпич', text2: 'kirpich'},
+    {text1: 'Карбид', text2: 'carbid'},
+    {text1: 'Бакара', text2: 'bacara'},
+    {text1: 'Лом', text2: 'lom'},
+    {text1: 'Лось', text2: 'los'},
+    {text1: 'Фортунер', text2: 'fortuner'},
+    {text1: 'Вортекс', text2: 'vortex'},
+    {text1: 'Вортигон', text2: 'vortigon'},
+    {text1: 'Протуберанец', text2: 'protuberanec'}
+  ],
+  [
+    {text1: 'Икс5', text2: 'x5'},
+    {text1: 'Маклауд', text2: 'mclaud'},
+    {text1: 'Икс-файер', text2: 'xfire'},
+    {text1: 'Крусифай', text2: 'crusify'},
+    {text1: 'Норрис', text2: 'norris'},
+    {text1: 'Хэлбой', text2: 'hellboy'}
+  ]
+],
+[
+  [
+    {text1: 'Мамлюга', text2: 'mamluga'},
+    {text1: 'Спикер', text2: 'spicker'},
+    {text1: 'Спок', text2: 'spok'},
+    {text1: 'Сапиенс', text2: 'sapiense'},
+    {text1: 'Буденза', text2: 'budenza'},
+    {text1: 'Канук', text2: 'kanuk'},
+    {text1: 'Тортим', text2: 'torteam'},
+    {text1: 'Адвок', text2: 'advoc'},
+    {text1: 'Ксандр', text2: 'xandr'},
+    {text1: 'Хейнрик', text2: 'heinrick'},
+    {text1: 'Дюпонт', text2: 'dupont'},
+    {text1: 'Варгус', text2: 'vargus'},
+    {text1: 'Кариб', text2: 'carib'},
+    {text1: 'Вартан', text2: 'vartan'},
+    {text1: 'Перелыга', text2: 'perelyga'},
+    {text1: 'Мугади', text2: 'mugadi'},
+    {text1: 'Густаво', text2: 'gustavo'},
+    {text1: 'Броуди', text2: 'broudi'},
+    {text1: 'Маэстро', text2: 'maestro'},
+    {text1: 'Дакота', text2: 'dakota'},
+    {text1: 'Чамблер', text2: 'chambler'},
+    {text1: 'Мамблер', text2: 'mambler'},
+    {text1: 'Сидней', text2: 'sidnei'},
+    {text1: 'Чернолес', text2: 'chernoles'},
+    {text1: 'Мигель', text2: 'migel'}
+  ],
+  [
+    {text1: 'Вандерлей', text2: 'vanderlei'},
+    {text1: 'Рой', text2: 'roi'},
+    {text1: 'Брэдберри', text2: 'bradberry'},
+    {text1: 'Канберра', text2: 'kanberra'},
+    {text1: 'Мерлин', text2: 'merlin'},
+    {text1: 'Вапоронэ', text2: 'vaporone'}
+  ]
+],
+[
+  [
+    {text1: 'Ботя', text2: 'botya'},
+    {text1: 'Рубик', text2: 'rubik'},
+    {text1: 'Доцик', text2: 'dozik'},
+    {text1: 'Уник', text2: 'unique'},
+    {text1: 'Пятак', text2: 'pyatak'},
+    {text1: 'Умяга', text2: 'umyaga'},
+    {text1: 'Зауч', text2: 'zauch'},
+    {text1: 'Матео', text2: 'mateo'},
+    {text1: 'Кюхля', text2: 'kuhlja'},
+    {text1: 'Михайло', text2: 'mihailo'},
+    {text1: 'Вумник', text2: 'vumnik'},
+    {text1: 'Мефодя', text2: 'mefodja'},
+    {text1: 'Дадиц', text2: 'dadiz'},
+    {text1: 'Учила', text2: 'uchila'},
+    {text1: 'Мобилкин', text2: 'mobilkin'},
+    {text1: 'Двач', text2: 'dvach'},
+    {text1: 'Бакл', text2: 'bakl'},
+    {text1: 'Тубус', text2: 'tubus'},
+    {text1: 'Офелак', text2: 'ofelak'},
+    {text1: 'Доцент', text2: 'docent'},
+    {text1: 'Фазатрон', text2: 'phasatron'},
+    {text1: 'Фармоза', text2: 'farmoza'},
+    {text1: 'Квадро', text2: 'kvadro'},
+    {text1: 'Глобус', text2: 'globus'}
+  ],
+  [
+    {text1: 'Синхрон', text2: 'sinchron'},
+    {text1: 'Мюмезон', text2: 'mumezon'},
+    {text1: 'Ломоносов', text2: 'lomonosov'},
+    {text1: 'Андройд', text2: 'android'},
+    {text1: 'Таргет', text2: 'target'},
+    {text1: 'Меморис', text2: 'memoris'}
+  ]
+],
+[
+  [
+    {text1: 'Чупик', text2: 'chupik'},
+    {text1: 'Капитон', text2: 'kapiton'},
+    {text1: 'Васито', text2: 'vasito'},
+    {text1: 'Урюк', text2: 'uruk'},
+    {text1: 'Бахыт', text2: 'bahyt'},
+    {text1: 'Хумлик', text2: 'humlik'},
+    {text1: 'Лохарио', text2: 'lohario'},
+    {text1: 'Волос', text2: 'volos'},
+    {text1: 'Кузя', text2: 'kuzya'},
+    {text1: 'Чан', text2: 'chan'},
+    {text1: 'Шастик', text2: 'shastik'},
+    {text1: 'Гопура', text2: 'gopura'},
+    {text1: 'Куто', text2: 'kuto'},
+    {text1: 'Коша', text2: 'kosha'},
+    {text1: 'Геша', text2: 'gesha'},
+    {text1: 'Кеша', text2: 'kesha'},
+    {text1: 'Хулио', text2: 'hulio'},
+    {text1: 'Хнылик', text2: 'hnylik'},
+    {text1: 'Кизяк', text2: 'kizjak'},
+    {text1: 'Пыря', text2: 'pyrja'},
+    {text1: 'Скорняк', text2: 'skornjak'},
+    {text1: 'Волдырь', text2: 'voldyr'},
+    {text1: 'Чукод', text2: 'chukod'},
+    {text1: 'Абырвалг', text2: 'abyrvalg'},
+    {text1: 'Урбан', text2: 'urban'},
+    {text1: 'Кахим', text2: 'kahim'},
+    {text1: 'Чванпраш', text2: 'chvanprash'},
+    {text1: 'Каряга', text2: 'karjaga'},
+    {text1: 'Бамбучо', text2: 'bambucho'},
+    {text1: 'Джус', text2: 'juce'},
+    {text1: 'Вадян', text2: 'vadjan'},
+    {text1: 'Матфей', text2: 'matfei'},
+    {text1: 'Чючева', text2: 'chucheva'},
+    {text1: 'Потап', text2: 'potap'},
+    {text1: 'Черкаш', text2: 'cherkash'},
+    {text1: 'Барабас', text2: 'barabas'},
+    {text1: 'Чекан', text2: 'chekan'},
+    {text1: 'Жаконя', text2: 'jakonja'},
+    {text1: 'Сереня', text2: 'serenja'},
+    {text1: 'Утюг', text2: 'utug'},
+    {text1: 'Бабан', text2: 'baban'},
+    {text1: 'Пинта', text2: 'pinta'}
+  ],
+  [
+    {text1: 'Фурунтул', text2: 'furuntul'},
+    {text1: 'Пумпидо', text2: 'pumpido'},
+    {text1: 'Бродя', text2: 'brodja'},
+    {text1: 'Хулио-Дедулио', text2: 'hulio_dedulio'},
+    {text1: 'Тэрлим-бум-бом', text2: 'terlim_bum_bom'},
+    {text1: 'Кирупа', text2: 'kirupa'},
+    {text1: 'Бакурец', text2: 'bakurez'}
+  ]
+],
+
+// Brutal + diplomat + botanik combo
+[
+  {text1: 'Прадо', text2: 'prado'},
+  {text1: 'Ровер', text2: 'rover'},
+  {text1: 'Магистр', text2: 'magister'},
+  {text1: 'Гектор', text2: 'gektor'},
+  {text1: 'Червлей', text2: 'chervley'},
+  {text1: 'Эксодус', text2: 'exodus'},
+  {text1: 'Блейд', text2: 'blade'}
+],
+
+// Blatnoy + Brutal + botanik combo
+[
+  {text1: 'Хайлендер', text2: 'highlander'},
+  {text1: 'Байсон', text2: 'baison'},
+  {text1: 'Лексус', text2: 'lexus'},
+  {text1: 'Легион', text2: 'legion'},
+  {text1: 'Кристобальд', text2: 'kristobald'},
+  {text1: 'Спартак', text2: 'spartak'}
+],
+
+// Brutal + botanik combo
+[
+  {text1: 'Бакарра', text2: 'bakarra'},
+  {text1: 'Черроки', text2: 'cheroki'},
+  {text1: 'Конкорд', text2: 'concord'},
+  {text1: 'Рокки', text2: 'rokki'},
+  {text1: 'Рэйзор', text2: 'razor'},
+  {text1: 'Кондор', text2: 'condor'}
+],
+// Blatnoy + razdolbai combo
+[
+  {text1: 'Бомболейло', text2: 'bomboleilo'},
+  {text1: 'Бартоломео', text2: 'bartolomeo'},
+  {text1: 'Джордано', text2: 'jordano'},
+  {text1: 'Чикано', text2: 'chikano'},
+  {text1: 'Пенцшнет', text2: 'pencshnet'},
+  {text1: 'Каранага', text2: 'karanaga'}
+],
+// Brutal + razdolbai combo
+[
+  {text1: 'Бузон', text2: 'buzon'},
+  {text1: 'Мрамор', text2: 'mramor'},
+
+  {text1: 'Штакет', text2: 'shtaket'},
+  {text1: 'Кастет', text2: 'kastet'},
+  {text1: 'Дрюкер', text2: 'druker'},
+  {text1: 'Плюмбум', text2: 'plumbum'}
+],
+// Diplomat + razdolbai combo
+[
+  {text1: 'Вин-Чун', text2: 'vin_chun'},
+  {text1: 'Каргей', text2: 'kargey'},
+  {text1: 'Хуан', text2: 'huan'},
+  {text1: 'Фунчоза', text2: 'funchoza'},
+  {text1: 'Фантоци', text2: 'fantozi'},
+  {text1: 'Кокос', text2: 'kokos'}
+],
+// Botanik + razdolbai combo
+[
+  {text1: 'Колобок', text2: 'kolobok'},
+  {text1: 'Муму', text2: 'mumu'},
+  {text1: 'Прохфессор', text2: 'prohfessor'},
+  {text1: 'Бацилла', text2: 'bacila'},
+  {text1: 'Филиппок', text2: 'filipok'},
+  {text1: 'Студень', text2: 'studen'}
+],
+// Diplomat + Botan combo
+[
+  {text1: 'Мойша', text2: 'moisha'},
+  {text1: 'Адам', text2: 'adam'},
+  {text1: 'Абрам', text2: 'abram'},
+  {text1: 'Агдам', text2: 'agdam'},
+  {text1: 'Изя', text2: 'izya'},
+  {text1: 'Троцкий', text2: 'trockiy'}
+],
+// Blatnoy + Brutal combo
+[
+  {text1: 'Бугор', text2: 'bugor'},
+  {text1: 'Волына', text2: 'volyna'},
+  {text1: 'Гром', text2: 'grom'},
+  {text1: 'Калган', text2: 'kalgan'},
+  {text1: 'Крутой', text2: 'krutoi'},
+  {text1: 'Амбал', text2: 'ambal'}
+],
+// Blatnoy + Diplomat combo
+[
+  {text1: 'Удавчик', text2: 'udavchik'},
+  {text1: 'Фасон', text2: 'fason'},
+  {text1: 'Цымус', text2: 'cymus'},
+  {text1: 'Эклер', text2: 'ekler'},
+  {text1: 'Понт', text2: 'pont'},
+  {text1: 'Муха', text2: 'muha'}
+],
+// Blatnoy + Botan combo
+[
+  {text1: 'Клифт', text2: 'klift'},
+  {text1: 'Дэцел', text2: 'decel'},
+  {text1: 'Вольт', text2: 'volt'},
+  {text1: 'Буффер', text2: 'buffer'},
+  {text1: 'Бандл', text2: 'bundle'},
+  {text1: 'Малой', text2: 'maloy'}
+]
+
+
+];
+
+'';
