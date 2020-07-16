@@ -1,3 +1,4 @@
+import Settings from '@/components/Settings.js'
 export default {
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
@@ -44,20 +45,131 @@ export default {
 
   loadAssets () {
     return new Promise((resolve, reject) => {
-      this.loadGameAssetsDictionary()
+      this.loadAssetsFromIndexedDB()
         .then(res => {
-          // console.log('gameAssets:', res)
           this.gameAssets = res
           resolve(res)
         })
         .catch(reason => {
-          reject(reason)
+          this.loadGameAssetsDictionary()
+            .then(res => {
+              // console.log('gameAssets:', res)
+              this.gameAssets = res
+              if (Settings.CACHE_ENABLED) {
+                this.saveAssetsToIndexedDB()
+              }
+              resolve(res)
+            })
+            .catch(reason => {
+              reject(reason)
+            })
         })
     })
   },
 
+  loadAssetsFromIndexedDB () {
+    return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('loadAssetsFromIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
+      if (('indexedDB' in window)) {
+        let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
+        // console.log(openRequest)
+        openRequest.onupgradeneeded = (event) => {
+          let db = event.target.result
+          // console.log('HERE!', db)
+          if (db.objectStoreNames.contains('gameAssets')) {
+            db.deleteObjectStore('gameAssets')
+          }
+          db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
+          // NOTE: next will be openRequest.onsuccess!!!
+        }
+        openRequest.onsuccess = (event) => {
+          let db = event.target.result
+          // console.log('onsuccess', db)
+          let tx = db.transaction(['gameAssets'], 'readwrite')
+          // console.log(tx)
+          let store = tx.objectStore('gameAssets')
+          // console.log(store)
+
+          let req = store.get(1)
+          req.onsuccess = (event) => {
+            let tmp = event.target.result
+            if (tmp && tmp.value) {
+              console.log('Taken gameAssets from IndexedDB v.' + Settings.INDEXEDDB_VERSION, tmp)
+              resolve(tmp.value)
+            } else {
+              reject(new TypeError('No gameAssets record in IndexedDB!'))
+            }
+          }
+
+          req.onerror = (event) => {
+            reject(new TypeError('No gameAssets record in IndexedDB!'))
+          }
+
+          tx.oncomplete = () => {
+            // console.log('tx complete')
+          }
+          tx.onerror = (event) => {
+            reject(new TypeError('Error reading IndexedDB!'))
+          }
+        }
+      } else {
+        console.log('This browser doesnt support IndexedDB')
+        reject(new TypeError('This browser doesnt support IndexedDB'))
+      }
+    })
+  },
+
+  saveAssetsToIndexedDB () {
+    return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('saveAssetsToIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
+      if (('indexedDB' in window)) {
+        let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
+        // console.log(openRequest)
+        openRequest.onupgradeneeded = (event) => {
+          let db = event.target.result
+          // console.log('HERE!', db)
+          if (!db.objectStoreNames.contains('gameAssets')) {
+            db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
+            // console.log('HERE!', objectStore)
+            // NOTE: next will be openRequest.onsuccess!!!
+          }
+        }
+        openRequest.onsuccess = (event) => {
+          let db = event.target.result
+          // console.log('onsuccess', db)
+          let tx = db.transaction(['gameAssets'], 'readwrite')
+          // console.log(tx)
+          let store = tx.objectStore('gameAssets')
+          // console.log(store)
+
+          store.put({id: 1, value: this.gameAssets})
+          console.log('Saving loaded assets to IndexedDB v.' + Settings.INDEXEDDB_VERSION)
+
+          tx.oncomplete = () => {
+            console.log('Save success')
+            resolve(true)
+          }
+          tx.onerror = (event) => {
+            console.log('Save error!')
+            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + Settings.INDEXEDDB_VERSION))
+          }
+        }
+      } else {
+        console.log('This browser doesnt support IndexedDB')
+        reject(new TypeError('This browser doesnt support IndexedDB'))
+      }
+    })
+  },
+
   async loadGameAssetsDictionary () {
-    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
+    const requireContext = Settings.CACHE_ENABLED ? require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
+      : require.context('@/assets/', true, /\.(qsp|json)(\?.*)?$/)
     let arr = requireContext.keys().map(file =>
       [file.replace('./', ''), requireContext(file)]
     )
@@ -81,7 +193,7 @@ export default {
       let url = require('@/assets/' + name)
 
       // For html version
-      // url = 'https://api.github.com/users/ssurgutsky/sg2/assets/' + name
+      // url = 'https://github.com/ssurgutsky/t/tree/master/static/' + name
       // console.log(url)
       // console.log(counter, url)
       await this.fetchLocal(url).then(response => {
@@ -90,10 +202,6 @@ export default {
           // console.log(blob)
 
           // Update progress bar
-          counter++
-          if (this.preloadingCallback && counter < array.length) {
-            this.preloadingCallback({'current': counter, 'total': array.length})
-          }
           // console.log('cachedAsset', {'current': counter, 'total': array.length})
 
           if (name.indexOf('scripts') >= 0 || name.indexOf('scenario') >= 0) {
@@ -104,6 +212,7 @@ export default {
               const text = e.srcElement.result
               // console.log(text)
               result[name] = text
+              counter = this.incCounter(counter, array.length)
             })
 
             // Start reading the blob as text.
@@ -116,6 +225,7 @@ export default {
               const media = e.srcElement.result
               // console.log(media)
               result[name] = media
+              counter = this.incCounter(counter, array.length)
             })
 
             // Start reading the blob as text.
@@ -126,6 +236,14 @@ export default {
       })
     }
     return result
+  },
+
+  incCounter (counter, total) {
+    counter++
+    if (this.preloadingCallback) {
+      this.preloadingCallback({'current': counter, 'total': total})
+    }
+    return counter
   },
 
   fetchLocal (url, isBlob) {

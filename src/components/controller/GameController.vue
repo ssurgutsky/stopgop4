@@ -12,7 +12,8 @@
       @cheatSkip="cheatSkip"
       @cheatBack="cheatBack"
       @cheatEpisode="cheatEpisode"
-      ref="mainView">
+      ref="mainView"
+    >
     </MainView>
     <GameModel ref="gameModel"></GameModel>
   </div>
@@ -56,17 +57,24 @@ export default {
       this.mainView.showImages('logo.jpg')
 
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
+      this.onPreloadingUpdate()
       CacheController.loadAssets().then(res => {
         // console.log('cachedData:', CacheController.gameAssets)
-        this.assetsCached()
+        setTimeout(() => {
+          this.assetsCached()
+        }, 1000)
       })
     },
 
     onPreloadingUpdate (obj) {
       let text = 'Loading...'
       if (obj) {
-        text = text + obj.current + '/' + obj.total
-        this.mainView.updateTimerViewPercent(obj.current, obj.total)
+        if (obj.current === obj.total) {
+          text = text + ' done!'
+        } else {
+          text = text + obj.current + '/' + obj.total
+          this.mainView.updateTimerViewPercent(obj.current, obj.total)
+        }
       }
       this.mainView.setQuestionText(text)
     },
