@@ -411,6 +411,50 @@
                       ],
                       "_mark": "skip_rules",
                       "_content": "[LABEL Уже знаю]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "_mark": "mark_29quy4j3a76s4d9p9747",
+                                  "_content": "[LABEL ][GOTO START]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "mark_ht148aj862wm21q30ogd",
+                          "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
+                        }
+                      ],
+                      "_mark": "donate",
+                      "_content": "[LABEL Достать лопатник.]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "_mark": "mark_8r456ve83222mbv60b0m",
+                                  "_content": "[LABEL ][GOTO START]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "mark_t319971dwu2865mjn7qo",
+                          "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                        }
+                      ],
+                      "_mark": "ddonate",
+                      "_content": "[LABEL Закивасить.]"
                     }
                   ],
                   "_mark": "mark_au0e5w32c3m410n44507",
@@ -419,10 +463,18 @@
               ],
               "_mark": "",
               "_content": "[LABEL НАЧАТЬ ИГРУ / START THE GAME]"
+            },
+            {
+              "_mark": "",
+              "_content": "[LABEL ][GOTO donate]"
+            },
+            {
+              "_mark": "",
+              "_content": "[LABEL ][GOTO ddonate]"
             }
           ],
           "_mark": "mark_6qt33ij77wk9z089lj79",
-          "_content": "[LABEL Stop Gop 4. Pogonyalo. Симулятор гопника, узнай свое погоняло!{script initQuestions}{script initNames}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Симулятор гопника, часть 4. Узнай свое погоняло!\nv1.{this.game_version}{script initQuestions}{script initNames}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER ON]"
         }
       ]
     }

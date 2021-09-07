@@ -1,4 +1,4 @@
-[mark_6qt33ij77wk9z089lj79]Stop Gop 4. Pogonyalo. Симулятор гопника, узнай свое погоняло![ANSWERSORDER OFF][BGNDIMAGE Intro.jpg]{script initQuestions}{script initNames}{script initSystem}
+[mark_6qt33ij77wk9z089lj79]Симулятор гопника, часть 4. Узнай свое погоняло!\nv1.{this.game_version}[ANSWERSORDER ON][BGNDIMAGE Intro.jpg]{script initQuestions}{script initNames}{script initSystem}
 	НАЧАТЬ ИГРУ / START THE GAME
 		[mark_au0e5w32c3m410n44507]Здарова! Мне отсюда плохо видно - кто ты такой: лох, пацан или женщина. Для простоты, я буду звать тебя - Толян. Рассказать тебе правила, Толян?[VIDEO GopSpeechSimpleLoop][AUDIO hello][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]
 			Расскажи
@@ -73,3 +73,13 @@
 																										[mark_fu13r52lyqz6se221hem][GOTO INTRO]
 			[skip_rules]Уже знаю
 				[mark_a7c215315ost6ki2p7z8][GOTO INTRO]
+			[donate]Достать лопатник.
+				[mark_ht148aj862wm21q30ogd][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
+					
+						[mark_29quy4j3a76s4d9p9747][GOTO START]
+			[ddonate]Закивасить.
+				[mark_t319971dwu2865mjn7qo][NAVIGATEURL https://qiwi.com/n/SERJIOS]
+					
+						[mark_8r456ve83222mbv60b0m][GOTO START]
+	[GOTO donate]
+	[GOTO ddonate]
