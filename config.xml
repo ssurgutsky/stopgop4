@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.skystairgames.sg4" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>StopGop4</name>
+    <name>Stop Gop 4</name>
     <description>
-        StopGop4
+        Stop Gop 4
     </description>
     <author email="skystairgames@gmail.com" href="http://skystairgames.ru">
         Sky Stair Games Team
