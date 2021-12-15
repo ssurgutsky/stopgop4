@@ -18,42 +18,46 @@ let audioTitles='';
 
 if (this.certificate.charAt(this.certificate.length - 1) === '@') {
   let str = this.certificate.substring(0, this.certificate.length - 1)
-  console.log('str', str)
+  // console.log('str', str)
 
   let decryptStr1 = crypt(str, this.cryptoKey)
-  console.log('decryptStr1', decryptStr1)
+  // console.log('decryptStr1', decryptStr1)
   let arr = decryptStr1.split(this.separator)
 
   if (arr.length > 1) {
     let msg2 = arr[0]
-    console.log('msg2', msg2)
+    // console.log('msg2', msg2)
 
     let dynamicKey = decryptStr1.split(this.separator)[1]
-    console.log('dynamicKey', dynamicKey)
+    // console.log('dynamicKey', dynamicKey)
 
     let decryptStr2 = crypt(msg2, dynamicKey)
-    console.log('decryptStr2', decryptStr2)
+    // console.log('decryptStr2', decryptStr2)
 
     let arr2 = decryptStr2.split(this.separatorCheckSum)
     if (arr2.length > 1) {
       let msg1 = arr2[0]
-      console.log('msg1', msg1)
+      // console.log('msg1', msg1)
       let checkSum = parseInt(arr2[1])
-      console.log('checkSum', checkSum)
+      // console.log('checkSum', checkSum)
 
       let cs = this.checkSumByte
       for (let i = 0; i < msg1.length; i++) {
         cs = cs ^ msg1.charCodeAt(i)
       }
-      console.log('cs', cs)
+      // console.log('cs', cs, cs === checkSum);
 
       if (cs === checkSum) {
-        let arr3 = msg1.split(this.separator)
+        let arr3 = msg1.split(this.separator);
+        // console.log(arr3);
         if (arr3.length > 1) {
           let namesArr = arr3[0].split(',');
           namesArr = namesArr.map(item => 'names/' + item);
+          // console.log(arr3[1]);
           let titlesArr = arr3[1].split(',');
           titlesArr = titlesArr.map(item => 'titles/' + item);
+
+          // console.log(titlesArr);
 
           this.audioTag = namesArr + ',' + titlesArr;
           this.friends = arr3[2]

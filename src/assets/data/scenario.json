@@ -413,6 +413,10 @@
                       "_content": "[LABEL Уже знаю]"
                     },
                     {
+                      "_mark": "",
+                      "_content": "[LABEL ][GOTO check_certificate]"
+                    },
+                    {
                       "node": [
                         {
                           "node": [
@@ -428,11 +432,11 @@
                             }
                           ],
                           "_mark": "mark_ht148aj862wm21q30ogd",
-                          "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
+                          "_content": "[LABEL ][NAVIGATEURL https://sobe.ru/na/serjios]"
                         }
                       ],
                       "_mark": "donate",
-                      "_content": "[LABEL Достать лопатник.]"
+                      "_content": "[LABEL На развитие проекта (sobe.ru/na/serjios)]"
                     },
                     {
                       "node": [
@@ -454,7 +458,7 @@
                         }
                       ],
                       "_mark": "ddonate",
-                      "_content": "[LABEL Закивасить.]"
+                      "_content": "[LABEL Донат Сержиосу (qiwi.com/n/SERJIOS)]"
                     }
                   ],
                   "_mark": "mark_au0e5w32c3m410n44507",
@@ -466,6 +470,10 @@
             },
             {
               "_mark": "",
+              "_content": "[LABEL ][GOTO check_certificate]"
+            },
+            {
+              "_mark": "",
               "_content": "[LABEL ][GOTO donate]"
             },
             {
@@ -473,7 +481,7 @@
               "_content": "[LABEL ][GOTO ddonate]"
             }
           ],
-          "_mark": "mark_6qt33ij77wk9z089lj79",
+          "_mark": "START",
           "_content": "[LABEL Симулятор гопника, часть 4. Узнай свое погоняло!\nv1.{this.game_version}{script initQuestions}{script initNames}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER ON]"
         }
       ]

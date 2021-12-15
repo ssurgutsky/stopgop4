@@ -434,7 +434,7 @@ export default {
     },
 
     donate () {
-      window.open('https://qiwi.com/n/SERJIOS', '_system')
+      window.open('https://vk.com/club23748098', '_system')
     }
 
   }

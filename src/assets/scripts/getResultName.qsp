@@ -38,6 +38,7 @@ for (let i = 0; i < this.r.length; i++) {
     audio = audio + ((audio.length && i > 0) ? ',' : '') + gNames[subgroupNo][rndIdx].text2;
     audioNames = audioNames + ((audioNames.length && i > 0) ? ',' : '') + 'names/' + gNames[subgroupNo][rndIdx].text2;
     title = title + ((title.length && i > 0) ? '-' : '') + this.group_titles[i].text1;
+    audio2 = this.group_titles[i].text2;
     audioTitles = audioTitles + ((audioTitles.length && i > 0) ? ',' : '') + 'titles/' + this.group_titles[i].text2;
   }
 }
@@ -226,6 +227,25 @@ let dynamicKey = this.cryptoKey + 1 + parseInt(Math.random()*25);
 
 //console.log('dynamicKey:', dynamicKey);
 
+
+
+
+/*
+// TEST GOLDEN
+  let gNames = this.groups_names[this.GOLDEN_INDEX];
+  let rndIdx = parseInt(Math.random() * gNames.length)
+
+  result = gNames[rndIdx].text1;
+  audio = gNames[rndIdx].text2;
+  audioNames = 'names/' + gNames[rndIdx].text2;
+  title = this.group_titles[this.GOLDEN_INDEX].text1;
+  audio2 = this.group_titles[this.GOLDEN_INDEX].text2;
+  audioTitles = 'titles/' + this.group_titles[this.GOLDEN_INDEX].text2;
+/**/
+
+
+
+
 let msg1 = audio + this.separator + audio2 + this.separator + this.friends;
 let cs = this.checkSumByte;
 for (let i = 0; i < msg1.length; i++) {
@@ -234,7 +254,7 @@ for (let i = 0; i < msg1.length; i++) {
 
 msg1 = msg1 + this.separatorCheckSum + cs;
 
-// console.log('msg1', msg1);
+console.log('msg1', msg1);
 
 let encryptStr1 = crypt(msg1, dynamicKey);
 // console.log('encryptStr1', encryptStr1);

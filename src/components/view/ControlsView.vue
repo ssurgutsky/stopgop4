@@ -6,7 +6,7 @@
     <button :style="styleObjectCheat" v-show="isCheatPurchased || isSkipButton" @click="onSkipClick">SKIP</button>
     <button :style="styleObjectCheat" v-show="isBackButton" @click="onBackClick">BACK</button>
     <button :style="styleObjectCheat" v-show="isCheatPurchased || isEpisodesButton" @click="onEpisodeClick">EPISODE</button>
-    <button :style="styleObjectCheat" v-show="isDonateButton" @click="onDonateClick">DONATE</button>
+    <button :style="styleObjectCheat" v-show="isDonateButton" @click="onDonateClick">VK rpynna</button>
   </div>
 </template>
 
