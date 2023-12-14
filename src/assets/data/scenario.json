@@ -423,42 +423,76 @@
                             {
                               "node": [
                                 {
-                                  "_mark": "mark_29quy4j3a76s4d9p9747",
-                                  "_content": "[LABEL ][GOTO START]"
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "_mark": "mark_gpz4h2d5q2gj83yqc71b",
+                                          "_content": "[LABEL ][GOTO START]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_f80u11uv548604r8v3v5",
+                                  "_content": "[LABEL ][NAVIGATEURL https://www.tinkoff.ru/cf/7xIiPBRWF9P]"
                                 }
                               ],
                               "_mark": "",
-                              "_content": "[LABEL ]"
-                            }
-                          ],
-                          "_mark": "mark_ht148aj862wm21q30ogd",
-                          "_content": "[LABEL ][NAVIGATEURL https://sobe.ru/na/serjios]"
-                        }
-                      ],
-                      "_mark": "donate",
-                      "_content": "[LABEL На развитие проекта (sobe.ru/na/serjios)]"
-                    },
-                    {
-                      "node": [
-                        {
-                          "node": [
+                              "_content": "[LABEL Перевод Tinkoff]"
+                            },
                             {
                               "node": [
                                 {
-                                  "_mark": "mark_8r456ve83222mbv60b0m",
-                                  "_content": "[LABEL ][GOTO START]"
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "_mark": "mark_xw21sf4q2mxo3q0x9b78",
+                                          "_content": "[LABEL ][GOTO START]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_n4f3t5qf3l1tjoui2c2f",
+                                  "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
                                 }
                               ],
                               "_mark": "",
-                              "_content": "[LABEL ]"
+                              "_content": "[LABEL Перевод Qiwi]"
+                            },
+                            {
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "_mark": "mark_06z79l0n6q345b2ni5q2",
+                                          "_content": "[LABEL ][GOTO START]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_iz89w1lh9902e1966gt6",
+                                  "_content": "[LABEL ][NAVIGATEURL https://yoomoney.ru/to/41001220674141]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL Перевод YooMoney]"
                             }
                           ],
-                          "_mark": "mark_t319971dwu2865mjn7qo",
-                          "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                          "_mark": "mark_8o716rk6f9gm5w4vo191",
+                          "_content": "[LABEL Если понравилось, закинь сколько не жалко.][IMAGE donate.png]"
                         }
                       ],
-                      "_mark": "ddonate",
-                      "_content": "[LABEL Донат Сержиосу (qiwi.com/n/SERJIOS)]"
+                      "_mark": "donate",
+                      "_content": "[LABEL Donate / Дать денежку]"
                     }
                   ],
                   "_mark": "mark_au0e5w32c3m410n44507",
@@ -475,10 +509,6 @@
             {
               "_mark": "",
               "_content": "[LABEL ][GOTO donate]"
-            },
-            {
-              "_mark": "",
-              "_content": "[LABEL ][GOTO ddonate]"
             }
           ],
           "_mark": "START",

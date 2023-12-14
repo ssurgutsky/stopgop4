@@ -74,14 +74,19 @@
 			[skip_rules]Уже знаю
 				[mark_a7c215315ost6ki2p7z8][GOTO INTRO]
 			[GOTO check_certificate]
-			[donate]На развитие проекта (sobe.ru/na/serjios)
-				[mark_ht148aj862wm21q30ogd][NAVIGATEURL https://sobe.ru/na/serjios]
-					
-						[mark_29quy4j3a76s4d9p9747][GOTO START]
-			[ddonate]Донат Сержиосу (qiwi.com/n/SERJIOS)
-				[mark_t319971dwu2865mjn7qo][NAVIGATEURL https://qiwi.com/n/SERJIOS]
-					
-						[mark_8r456ve83222mbv60b0m][GOTO START]
+			[donate]Donate / Дать денежку
+				[mark_8o716rk6f9gm5w4vo191][IMAGE donate.png]Если понравилось, закинь сколько не жалко.
+					Перевод Tinkoff
+						[mark_f80u11uv548604r8v3v5][NAVIGATEURL https://www.tinkoff.ru/cf/7xIiPBRWF9P]
+							
+								[mark_gpz4h2d5q2gj83yqc71b][GOTO START]
+					Перевод Qiwi
+						[mark_n4f3t5qf3l1tjoui2c2f][NAVIGATEURL https://qiwi.com/n/SERJIOS]
+							
+								[mark_xw21sf4q2mxo3q0x9b78][GOTO START]
+					Перевод YooMoney
+						[mark_iz89w1lh9902e1966gt6][NAVIGATEURL https://yoomoney.ru/to/41001220674141]
+							
+								[mark_06z79l0n6q345b2ni5q2][GOTO START]
 	[GOTO check_certificate]
 	[GOTO donate]
-	[GOTO ddonate]
